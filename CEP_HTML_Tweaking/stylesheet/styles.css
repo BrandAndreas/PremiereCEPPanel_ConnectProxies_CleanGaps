@@ -1,0 +1,45 @@
+body {
+    background-color: #262626;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin: auto;
+    width: 200px;
+    /* max-width: 100%; */
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 7px;
+    background-color: transparent;
+    height: 50px;
+    width: 200px;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+section > h1 {
+    padding-top: 1rem;
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+p {
+    font-family: monospace;
+}
+
+details {
+    padding-bottom: 1rem;
+}
