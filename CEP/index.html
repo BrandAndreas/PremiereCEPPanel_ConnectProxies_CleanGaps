@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- This document forms the dockable panel. The button is the <input> tag below. The <style> formats the button. 
+
+		The extendscript is called through the <script type="text/javascript"> tag, which then routes it to use the adobe_cep_.evalScript to interpret that Javascript into Extendscript -->
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Connect Proxies</title>
+		<link rel="stylesheet" href="./stylesheet/styles.css" />
+		<script src="./lib/CSInterface.js"></script>		
+		<script type="text/javascript">
+			
+			function proxies() {
+				var cs = new CSInterface;
+				var form1 = document.getElementById("form1").value;
+				var form2 = document.getElementById("form2").value;
+				var form3 = document.getElementById("form3").value;
+				// var sender = ('var proxieFolder = "' + form1 + '";');
+				var sender = ('var proxieFolder = "' + form1 + '";var ending = "' + form2 + '";var nameExtension = "' + form3 + '";');
+
+				cs.evalScript(sender+'$.runScript.connectProxies()');
+			}
+
+			function importer() {
+				var cs = new CSInterface;
+				cs.evalScript('$.runScript.importFiles()');
+			}
+
+			function cleanClips() {
+				var cs = new CSInterface;
+				cs.evalScript('$.runScript.cleanClips()');
+			}
+
+		</script>
+		<style>
+			
+			
+
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<a href="javascript:history.go(0)">Refresh panel</a>
+		</section>
+		<section>
+			<h1>
+				Dateien mit Proxies verbinden:
+			</h1>
+			<details>
+				<summary>
+					Details
+				</summary>
+					<p>
+						Name des Proxie-Ordners:
+						<input type="text" id="form1" value="Proxies">
+					</p>
+					<p>
+						Dateityp:
+						<input type="text" id="form2" value="mov">
+					</p>
+					<p>
+						Namenserweiterung der Proxiedateien:
+						<input type="text" id="form3" value="_1">
+					</p>
+			</details>
+			<button id="runButton" type="run" onclick="proxies()">Connect Proxies</button>
+		</section>
+
+		<section>
+			<h1>
+				Dateien importieren:
+			</h1>
+			<button id="importButton" onclick="importer()">Import Files</button> 
+		</section>
+
+		<section>
+			<h1>
+				Clips aneinanderfügen:
+			</h1>
+			<button id="cleanClipsButton" onclick="cleanClips()">Clips zusammenführen</button> 
+		</section>
+
+		<script>
+			// var h1 = document.querySelector("h1");
+			// h1.textContent = "Ein neuer Text";
+		</script>
+	</body>
+</html>
